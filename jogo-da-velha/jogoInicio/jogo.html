@@ -1,87 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOGO DA VELHA</title>
-    <link rel="shortcut icon" href="png/pngtree-grey-haired-old-lady-clip-art-png-image_2884600.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TABULEIRO JOGO DA VELHA</title>
+  <link rel="shortcut icon" href="../png/pngtree-grey-haired-old-lady-clip-art-png-image_2884600.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="styleJogo.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <section>
-        <div class="box">
-            <div>
-                <img class="titulo-spongebob" src="png/titulo.png" alt="#">
-                <h1>TIC TAC TOE</h1>
-            </div>
+  <main>
+    <dialog id="modalVencedor">
+      <h1 id="text-modal" class="text-modal"></h1>
+      <h3 id="text-second" class="text-second"></h3>
+      <img class="gifBob" id="img-gifBob" src="../png/gif_bob.gif">
+      <img class="gifPat" id="img-gifPat" src="../png/gif_patrick.gif">
+      <button id="btn-reiniciar" onclick="iniciar(), closeModal()">JOGAR NOVAMENTE</button>
+    </dialog>
 
 
-                <div class="flex">
-                    <div class="boxPlayer">
-                        <img class="bob" src="png/pngwing.com.png" alt="">
-                        <h3>Player 1</h3>
-                        <input id="player1" type="text">
-                    </div>
+    <h1>JOGO DA VELHA</h1>
+      <div class="tabuleiro">
+        <button data-i="1"></button>
+        <button data-i="2"></button>
+        <button data-i="3"></button>
+        <button data-i="4"></button>
+        <button data-i="5"></button>
+        <button data-i="6"></button>
+        <button data-i="7"></button>
+        <button data-i="8"></button>
+        <button data-i="9"></button>
+      </div>
 
-                    <div class="boxPlayer">
-                        <img class="patrick" src="png/pratrick.png" alt="">
-                        <h3>Player 2</h3>
-                        <input id="player2" type="text">
-                    </div>
-                </div>
-                <div class="link">
-                    <a href="../jogo-da-velha/jogoInicio/jogo.html">
-                        <button onclick="SavePlayers()" class="btn-jogar">JOGAR</button>
-                    </a>
-                </div>
+    <h2 class="textoPlayer"></h2>
+    <a href="../index.html">
+      <button class="btn-back"><i class='bx bx-arrow-back'></i></button>
+    </a>
+    <button id="btn-audio"><i class='bx bxs-volume-full'></i></button>
 
+    <audio id="Audio" src="../som/music.m4a" autoplay loop></audio>
 
-            <a href="../jogo-da-velha/ranking/ranking.html">
-                <button id="btn-ranking"><i class='bx bxs-trophy'></i></button>
-            </a>
-            <button id="btn-audio"><i class='bx bxs-volume-full'></i></button>
-        </div>
-        <audio id="Audio" src="som/music.m4a" autoplay loop>
-            
-        </audio>
-    </section>
-
-    <script>
-        // MUTE DESMUTE
-        const audio = document.getElementById('Audio');
-        const btnAudio = document.getElementById('btn-audio');
-        const textButtonPlay = "<i class='bx bxs-volume-full'></i>";
-        const textButtonPause = "<i class='bx bxs-volume-mute' ></i>";
-
-        btnAudio.onclick = () => playPause();
-
-        const playPause = () => {
-        if (audio.paused) {
-            audio.play();
-            btnAudio.innerHTML = textButtonPlay;
-        } else {
-            audio.pause();
-            btnAudio.innerHTML = textButtonPause;
-        }
-        }
-        // MUTE DESMUTE
-
-        // IR PARA PAGINA DO JOGO
-
-        let player1 = document.getElementById('player1')
-        let player2 = document.getElementById('player2')
-
-        function SavePlayers(){
-            let player1 = document.getElementById("player1").value;
-            let player2 = document.getElementById("player2").value;
-
-            localStorage.setItem('player1', player1)
-            localStorage.setItem('player2', player2)
-            localStorage.setItem('pontosP1', 0)
-            localStorage.setItem('pontosP2', 0)
-        }
-
-    </script>
+  </main>
+  <script src="script.js"></script>
 </body>
 </html>
