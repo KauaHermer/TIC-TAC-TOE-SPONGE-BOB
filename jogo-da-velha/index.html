@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOGO DA VELHA</title>
+    <link rel="shortcut icon" href="png/pngtree-grey-haired-old-lady-clip-art-png-image_2884600.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <section>
+        <div class="box">
+            <div>
+                <img class="titulo-spongebob" src="png/titulo.png" alt="#">
+                <h1>TIC TAC TOE</h1>
+            </div>
+
+
+                <div class="flex">
+                    <div class="boxPlayer">
+                        <img class="bob" src="png/pngwing.com.png" alt="">
+                        <h3>Player 1</h3>
+                        <input id="player1" type="text">
+                    </div>
+
+                    <div class="boxPlayer">
+                        <img class="patrick" src="png/pratrick.png" alt="">
+                        <h3>Player 2</h3>
+                        <input id="player2" type="text">
+                    </div>
+                </div>
+                <div class="link">
+                    <a href="../jogoInicio/jogo.html">
+                        <button onclick="SavePlayers()" class="btn-jogar">JOGAR</button>
+                    </a>
+                </div>
+
+
+            <a href="../ranking/ranking.html">
+                <button id="btn-ranking"><i class='bx bxs-trophy'></i></button>
+            </a>
+            <button id="btn-audio"><i class='bx bxs-volume-full'></i></button>
+        </div>
+        <audio id="Audio" src="som/music.m4a" autoplay loop>
+            
+        </audio>
+    </section>
+
+    <script>
+        // MUTE DESMUTE
+        const audio = document.getElementById('Audio');
+        const btnAudio = document.getElementById('btn-audio');
+        const textButtonPlay = "<i class='bx bxs-volume-full'></i>";
+        const textButtonPause = "<i class='bx bxs-volume-mute' ></i>";
+
+        btnAudio.onclick = () => playPause();
+
+        const playPause = () => {
+        if (audio.paused) {
+            audio.play();
+            btnAudio.innerHTML = textButtonPlay;
+        } else {
+            audio.pause();
+            btnAudio.innerHTML = textButtonPause;
+        }
+        }
+        // MUTE DESMUTE
+
+        // IR PARA PAGINA DO JOGO
+
+        let player1 = document.getElementById('player1')
+        let player2 = document.getElementById('player2')
+
+        function SavePlayers(){
+            let player1 = document.getElementById("player1").value;
+            let player2 = document.getElementById("player2").value;
+
+            localStorage.setItem('player1', player1)
+            localStorage.setItem('player2', player2)
+            localStorage.setItem('pontosP1', 0)
+            localStorage.setItem('pontosP2', 0)
+        }
+
+    </script>
+</body>
+</html>

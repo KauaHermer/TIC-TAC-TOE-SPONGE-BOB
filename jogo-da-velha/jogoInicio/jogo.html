@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TABULEIRO JOGO DA VELHA</title>
+  <link rel="shortcut icon" href="../png/pngtree-grey-haired-old-lady-clip-art-png-image_2884600.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="styleJogo.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <main>
+    <dialog id="modalVencedor">
+      <h1 id="text-modal" class="text-modal"></h1>
+      <h3 id="text-second" class="text-second"></h3>
+      <img class="gifBob" id="img-gifBob" src="../png/gif_bob.gif">
+      <img class="gifPat" id="img-gifPat" src="../png/gif_patrick.gif">
+      <button id="btn-reiniciar" onclick="iniciar(), closeModal()">JOGAR NOVAMENTE</button>
+    </dialog>
+
+
+    <h1>JOGO DA VELHA</h1>
+      <div class="tabuleiro">
+        <button data-i="1"></button>
+        <button data-i="2"></button>
+        <button data-i="3"></button>
+        <button data-i="4"></button>
+        <button data-i="5"></button>
+        <button data-i="6"></button>
+        <button data-i="7"></button>
+        <button data-i="8"></button>
+        <button data-i="9"></button>
+      </div>
+
+    <h2 class="textoPlayer"></h2>
+    <a href="../index.html">
+      <button class="btn-back"><i class='bx bx-arrow-back'></i></button>
+    </a>
+    <button id="btn-audio"><i class='bx bxs-volume-full'></i></button>
+
+    <audio id="Audio" src="../som/music.m4a" autoplay loop></audio>
+
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

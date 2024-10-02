@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RANKING JOGO DA VELHA</title>
+    <link rel="shortcut icon" href="../png/pngtree-grey-haired-old-lady-clip-art-png-image_2884600.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="ranking.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <section>
+        <div class="box">
+            <div>
+                <img class="titulo-spongebob" src="../png/titulo.png" alt="#">
+                <h1>TIC TAC TOE Ranking</h1>
+                <br><br><br>
+            </div>
+            
+            <h3 id="primeiro"></h3>
+            <h3 id="segundo"></h3>
+            <a href="../index.html">
+                <button class="btn-back"><i class='bx bx-arrow-back'></i></button>
+            </a>
+            <button id="btn-audio"><i class='bx bxs-volume-full'></i></button>
+        </div>
+        <audio id="Audio" src="../som/music.m4a" autoplay loop></audio>
+    </section>
+
+    <script>
+        
+        let player1 = localStorage.getItem('player1');
+        let player2 = localStorage.getItem('player2');
+        let pontosP1 = parseInt(localStorage.getItem('pontosP1'));
+        let pontosP2 = parseInt(localStorage.getItem('pontosP2'));
+        let primeiroTXT = document.getElementById('primeiro')
+        let segundoTXT = document.getElementById('segundo')
+
+        if (pontosP1 > pontosP2) {
+            primeiroTXT.innerHTML = `${player1} com total de ${pontosP1}`
+            segundoTXT.innerHTML = `${player2} com total de ${pontosP2}`
+        }else{
+            primeiroTXT.innerHTML = `${player2} com total de ${pontosP2}`
+            segundoTXT.innerHTML = `${player1} com total de ${pontosP1}`
+        }
+
+
+        const audio = document.getElementById('Audio');
+        const btnAudio = document.getElementById('btn-audio');
+        const textButtonPlay = "<i class='bx bxs-volume-full'></i>";
+        const textButtonPause = "<i class='bx bxs-volume-mute' ></i>";
+
+        btnAudio.onclick = () => playPause();
+        const playPause = () => {
+        if (audio.paused) {
+            audio.play();
+            btnAudio.innerHTML = textButtonPlay;
+        } else {
+            audio.pause();
+            btnAudio.innerHTML = textButtonPause;
+        }
+        }
+    </script>
+</body>
+</html>
