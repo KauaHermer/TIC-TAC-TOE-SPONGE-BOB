@@ -96,7 +96,7 @@ function check() {
         textSecond.innerHTML = `O JOGADOR ${player2} GANHOU 2 PONTOS`
       }
       exibirModal()
-      
+      return
     }
   }
 
